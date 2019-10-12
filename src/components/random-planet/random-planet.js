@@ -5,17 +5,25 @@ import ErrorIndicator from '../error-indicator';
 import './random-planet.css';
 
 export default class RandomPlanet extends Component {
-  SwapiService = new SwapiService();
+  swapiService = new SwapiService();
   state = {
     planet: {},
     loading: true,
     error: false,
   }
-  constructor() {
-    super();
+  componentDidMount() {
+    console.log('did mount');
     this.upDatePlanet();
+    this.interval = setInterval(this.upDatePlanet, 100000);
   }
-  onPlanetLoaded = (planet) => {
+  componentWillUnmount() {
+    console.log('will mount')
+  }
+  componentDidUpdate() {
+    console.log(121213214325436547658);
+  }
+  onPlanetLoaded = (planet) =>  {
+    console.log('planet loaded')
     this.setState({ 
       planet,
       loading: false,
@@ -28,20 +36,24 @@ export default class RandomPlanet extends Component {
       loading: false,
     });
   }
-  upDatePlanet() {
+  upDatePlanet = () => {
+    console.log('update');
+    console.log('111111');
     const id = Math.round(Math.random() * 20) + 2;
-    this.SwapiService
+    this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded)
       .catch(this.onError);
   }
   render() {
-    console.log(this);
+    console.log('render');
+    console.log('PLANEEEEEEEEEET');
+    console.log('THIS STATE', this.state)
     const { planet, loading, error } = this.state;
-    const hasData = !(loading || error); 
+    const data = !(loading || error); 
     const spinner = loading ? <Spinner /> : null;
     const errorIndicator = error ? <ErrorIndicator /> : null;
-    const content = hasData ? <PlanetView planet={planet}/> : null;
+    const content = data ? <PlanetView planet={planet} /> : null;
     return (
       <div className="random-planet jumbotron rounded">
         { spinner }
@@ -53,6 +65,7 @@ export default class RandomPlanet extends Component {
 }
 
 const PlanetView = ({ planet }) => {
+  console.log('PLANET VIEW')
   const { id, name, population,
           rotationPeriod, diameter } = planet;
 
