@@ -8,7 +8,12 @@ import './app.css';
 
 export default class App extends Component {
   state = {
-    personDetails: {},
+    personDetails: { id: '1',
+      name :'Luke Skywalker',
+      gender :'male',
+      birthYear :'19BBY',
+      eyeColor : 'blue'
+    },
   }
   handleItemSelected = (personDetails) => {
     this.setState({

@@ -7,13 +7,7 @@ export default class PersonDetails extends Component {
   render() {
     
     console.log('PERSON DETAILS')
-    const { personDetails: 
-              {id = '1',
-              name = 'Luke Skywalker',
-              gender = 'male',
-              birthYear = '19BBY',
-              eyeColor = 'blue'
-            } } = this.props
+    const { personDetails: {id, name, gender, birthYear, eyeColor} } = this.props;
     return (
       <div className="person-details card">
         <img className="person-image"
