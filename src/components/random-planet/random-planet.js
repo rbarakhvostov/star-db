@@ -12,18 +12,13 @@ export default class RandomPlanet extends Component {
     error: false,
   }
   componentDidMount() {
-    console.log('did mount');
     this.upDatePlanet();
     this.interval = setInterval(this.upDatePlanet, 100000);
   }
   componentWillUnmount() {
-    console.log('will mount')
-  }
-  componentDidUpdate() {
-    console.log(121213214325436547658);
+   
   }
   onPlanetLoaded = (planet) =>  {
-    console.log('planet loaded')
     this.setState({ 
       planet,
       loading: false,
@@ -37,8 +32,6 @@ export default class RandomPlanet extends Component {
     });
   }
   upDatePlanet = () => {
-    console.log('update');
-    console.log('111111');
     const id = Math.round(Math.random() * 20) + 2;
     this.swapiService
       .getPlanet(id)
@@ -46,9 +39,6 @@ export default class RandomPlanet extends Component {
       .catch(this.onError);
   }
   render() {
-    console.log('render');
-    console.log('PLANEEEEEEEEEET');
-    console.log('THIS STATE', this.state)
     const { planet, loading, error } = this.state;
     const data = !(loading || error); 
     const spinner = loading ? <Spinner /> : null;
@@ -65,14 +55,14 @@ export default class RandomPlanet extends Component {
 }
 
 const PlanetView = ({ planet }) => {
-  console.log('PLANET VIEW')
   const { id, name, population,
           rotationPeriod, diameter } = planet;
 
   return (
     <>
       <img className="planet-image"
-                src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} />
+              src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+              alt={name} />
       <div>
         <h4>{ name }</h4>
         <ul className="list-group list-group-flush">

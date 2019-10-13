@@ -8,21 +8,16 @@ import './app.css';
 
 export default class App extends Component {
   state = {
-    personDetails: { id: '1',
-      name :'Luke Skywalker',
-      gender :'male',
-      birthYear :'19BBY',
-      eyeColor : 'blue'
-    },
+    selectedPerson: '1',
   }
-  handleItemSelected = (personDetails) => {
+  onPersonSelected = (id) => {
     this.setState({
-      personDetails,
+      selectedPerson: id,
     })
   }
   render () {
     console.log('APP THIS', this);
-    const { personDetails } = this.state;
+    const { selectedPerson } = this.state;
     return (
       <div>
         <Header />
@@ -30,10 +25,10 @@ export default class App extends Component {
   
         <div className="row mb2">
           <div className="col-md-6">
-            <ItemList onItemSelected={this.handleItemSelected}/>
+            <ItemList onItemSelected={this.onPersonSelected} />
           </div>
           <div className="col-md-6">
-            <PersonDetails personDetails={personDetails} />
+            <PersonDetails personId={selectedPerson} />
           </div>
         </div>
       </div>
