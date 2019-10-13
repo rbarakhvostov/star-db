@@ -8,7 +8,7 @@ import './app.css';
 
 export default class App extends Component {
   state = {
-    selectedPerson: '1',
+    selectedPerson: null,
   }
   onPersonSelected = (id) => {
     this.setState({
@@ -22,7 +22,7 @@ export default class App extends Component {
       <div>
         <Header />
         <RandomPlanet />
-  
+
         <div className="row mb2">
           <div className="col-md-6">
             <ItemList onItemSelected={this.onPersonSelected} />
