@@ -33,18 +33,13 @@ export default class PersonDetails extends Component {
           person,
           loading: false,
         });
-      });
+    });
   }
 
   render() {
-    console.log('person details', this.state.loading);
     const { person, loading } = this.state;
-    
-    // if (!this.state.person) {
-    //   return <span>Select a person from a list</span>
-    // }
     const spinner = loading ? <Spinner /> : null;
-    const data = !loading ? <PersonDetailsView person={person}/> : null;
+    const data = !loading ? <PersonDetailsView person={person} /> : null;
     
     return (
       <div className='person-details card'>

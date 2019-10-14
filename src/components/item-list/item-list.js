@@ -15,7 +15,7 @@ export default class ItemList extends Component {
       .getAllPeople()
       .then((peopleList) => {
         this.setState({ peopleList });
-      });
+    });
   }
   renderItems(arr) {
     return arr.map(( {id, name} ) => {
