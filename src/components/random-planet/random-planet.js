@@ -24,7 +24,7 @@ export default class RandomPlanet extends Component {
       loading: false,
     });
   }
-  onError = () => {
+  onError = (err) => {
     this.setState({
       error: true,
       loading: false,
@@ -39,7 +39,7 @@ export default class RandomPlanet extends Component {
       .catch(this.onError);
   }
   render() {
-    console.log('PLANET', this)
+    console.log('PLANET')
     const { planet, loading, error } = this.state;
     const data = !(loading || error); 
     const spinner = loading ? <Spinner /> : null;
