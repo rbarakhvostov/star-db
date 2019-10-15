@@ -22,7 +22,7 @@ export default class PeoplePage extends Component {
     debugger;
     this.setState({error: true});
   }
-  
+
   render() {
     const { error, selectedPerson } = this.state;
     if (error) {
@@ -33,7 +33,8 @@ export default class PeoplePage extends Component {
         <div className='col-md-6'>
           <ItemList 
             onItemSelected={this.onPersonSelected}
-            getData={this.swapiService.getAllPeople} />
+            getData={this.swapiService.getAllPeople}
+            renderItem={({ name, birthYear }) => `${name} (${birthYear})`} />
         </div>
         <div className='col-md-6'>
           <PersonDetails personId={selectedPerson} />
