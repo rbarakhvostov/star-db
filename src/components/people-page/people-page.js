@@ -18,7 +18,7 @@ export default class PeoplePage extends Component {
     });
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch(err, info) {
     debugger;
     this.setState({error: true});
   }
@@ -28,19 +28,33 @@ export default class PeoplePage extends Component {
     if (error) {
       return <ErrorIndicator />
     }
+
+    const itemList = (
+      <ItemList 
+        onItemSelected={this.onPersonSelected}
+        getData={this.swapiService.getAllPeople}
+        renderItem={({ name, birthYear }) => `${name} (${birthYear})`} />
+    );
+
+    const personDetails = (
+      <PersonDetails personId={selectedPerson} />
+    );
+
     return (
-      <div className='row mb2'> 
-        <div className='col-md-6'>
-          <ItemList 
-            onItemSelected={this.onPersonSelected}
-            getData={this.swapiService.getAllPeople}
-            renderItem={({ name, birthYear }) => `${name} (${birthYear})`} />
-        </div>
-        <div className='col-md-6'>
-          <PersonDetails personId={selectedPerson} />
-        </div>
-      </div>
+      <Row left={itemList} right={personDetails} />
     )
   }
+}
 
+const Row = ({ left, right }) => {
+  return (
+    <div className='row mb2'> 
+      <div className='col-md-6'>
+        { left }
+      </div>
+      <div className='col-md-6'>
+        { right }
+      </div>
+    </div>
+  );
 }
