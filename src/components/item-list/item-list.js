@@ -20,7 +20,7 @@ export default class ItemList extends Component {
   renderItems(itemList) {
     return itemList.map(( item ) => {
       const { id } = item;
-      const label = this.props.renderItem(item);
+      const label = this.props.children(item);
       return (
         <li className="list-group-item"
             key={id}
@@ -32,6 +32,7 @@ export default class ItemList extends Component {
   }
   
   render() {
+    console.log('CHILD', this.props.children);
     const { itemList } = this.state;
     
     if (!itemList) {

@@ -10,15 +10,18 @@ export default class PersonDetails extends Component {
     person: {},
     loading: false,
   }
+
   componentDidMount() {
     this.upDatePerson();
   }
+
   componentDidUpdate(prevProps) {
     if (this.props.personId !== prevProps.personId) {
       this.setState({loading: true});
       this.upDatePerson();
     }
   }
+
   upDatePerson() {
     const { personId } = this.props;
 
@@ -52,9 +55,11 @@ export default class PersonDetails extends Component {
 
 const PersonDetailsView = ({ person }) => {
   const {id, name, gender, birthYear, eyeColor} = person;
+
   if (!id) {
     return <span>Select a person from a list</span>
   }
+
   return (
     <>
       <img className='person-image' 
