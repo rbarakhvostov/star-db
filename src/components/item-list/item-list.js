@@ -32,7 +32,6 @@ export default class ItemList extends Component {
   }
   
   render() {
-    console.log('CHILD', this.props.children);
     const { itemList } = this.state;
     
     if (!itemList) {

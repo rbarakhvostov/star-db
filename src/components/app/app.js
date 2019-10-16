@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import ItemList from '../item-list';
 import SwapiService from '../../services/swapi-service';
-import PersonDetails from '../person-details';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
 import './app.css';
 
 export default class App extends Component {
+
   swapiService = new SwapiService();
+
   state = {
     showRandomPlanet: true,
     error: false,
   }
+
   toggleRandomPlanet = () => {
     this.setState(({showRandomPlanet}) => {
       return {
@@ -25,6 +26,7 @@ export default class App extends Component {
   componentDidCatch() {
     this.setState({error: true});
   }
+  
   render () {
     if (this.state.error) {
       return <ErrorIndicator />;
