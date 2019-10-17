@@ -26,14 +26,13 @@ export default class itemDetails extends Component {
   }
 
   upDateItem() {
-    const { itemId } = this.props;
+    const { itemId, getData } = this.props;
 
     if (!itemId) {
       return;
     }
 
-    this.swapiService
-      .getPerson(itemId)
+    getData(itemId)
       .then((item) => {
         this.setState({ 
           item,
@@ -43,7 +42,6 @@ export default class itemDetails extends Component {
   }
 
   render() {
-    console.log('a', this)
     const { item, loading } = this.state;
     const spinner = loading ? <Spinner /> : null;
     const data = !loading ? <ItemDetailsView item={item} /> : null;

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import SwapiService from '../../services/swapi-service';
-import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
+import ErrorBoudry from '../error-boundry';
 import './app.css';
 
 export default class App extends Component {
@@ -23,28 +23,23 @@ export default class App extends Component {
     });
   }
 
-  componentDidCatch() {
-    this.setState({error: true});
-  }
-  
   render () {
-    if (this.state.error) {
-      return <ErrorIndicator />;
-    }
     console.log('APP THIS', this);
     const { showRandomPlanet } = this.state;
     const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null; 
     return (
-      <div>
-        <Header />
-        { randomPlanet }
-        <button
-          className='toggle-planet btn btn-warning btn-lg'
-          onClick={this.toggleRandomPlanet}>
-          Toggle Random Planet
-        </button>
-        <PeoplePage />
-      </div>
+      <ErrorBoudry>
+        <div>
+          <Header />
+          { randomPlanet }
+          <button
+            className='toggle-planet btn btn-warning btn-lg'
+            onClick={this.toggleRandomPlanet}>
+            Toggle Random Planet
+          </button>
+          <PeoplePage />
+        </div>
+      </ErrorBoudry>
     );
   }
 };

@@ -33,7 +33,9 @@ export default class PeoplePage extends Component {
     );
 
     const personDetails = (
-      <ItemDetails itemId={selectedPerson} />
+      <ItemDetails
+        itemId={selectedPerson}
+        getData={this.swapiService.getPerson} />
     );
 
     return (
@@ -43,4 +45,3 @@ export default class PeoplePage extends Component {
     )
   }
 }
-
