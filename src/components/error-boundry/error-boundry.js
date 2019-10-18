@@ -16,6 +16,7 @@ export default class ErrorBoundry extends Component {
   }
 
   render() {
+    
     const { error } = this.state;
 
     if (error) {

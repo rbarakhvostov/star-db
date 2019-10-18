@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import SwapiService from '../../services/swapi-service';
@@ -16,7 +16,7 @@ export default class App extends Component {
   }
 
   toggleRandomPlanet = () => {
-    this.setState(({showRandomPlanet}) => {
+    this.setState(({ showRandomPlanet }) => {
       return {
         showRandomPlanet: !showRandomPlanet,
       }
@@ -26,10 +26,11 @@ export default class App extends Component {
   render () {
     console.log('APP THIS', this);
     const { showRandomPlanet } = this.state;
-    const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null; 
+    const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
+  
     return (
       <ErrorBoudry>
-        <div>
+        <div className='app'>
           <Header />
           { randomPlanet }
           <button
