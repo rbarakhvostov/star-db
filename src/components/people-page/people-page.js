@@ -3,7 +3,7 @@ import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import SwapiService from '../../services/swapi-service';
 import Row from '../row';
-import ErrorBoundry from '../error-boundry';
+import ErrorBoundary from '../error-boundary';
 import Record from '../record';
 import './people-page.css';
 
@@ -47,9 +47,9 @@ export default class PeoplePage extends Component {
     );
 
     return (
-      <ErrorBoundry>
+      <ErrorBoundary>
         <Row left={itemList} right={personDetails} />
-      </ErrorBoundry>
+      </ErrorBoundary>
     )
   }
 }

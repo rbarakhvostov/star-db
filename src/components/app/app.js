@@ -3,7 +3,7 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import SwapiService from '../../services/swapi-service';
 import PeoplePage from '../people-page';
-import ErrorBoudry from '../error-boundry';
+import ErrorBoundary from '../error-boundary';
 import './app.css';
 
 export default class App extends Component {
@@ -29,7 +29,7 @@ export default class App extends Component {
     const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
   
     return (
-      <ErrorBoudry>
+      <ErrorBoundary>
         <div className='app'>
           <Header />
           { randomPlanet }
@@ -40,7 +40,7 @@ export default class App extends Component {
           </button>
           <PeoplePage />
         </div>
-      </ErrorBoudry>
+      </ErrorBoundary>
     );
   }
 };
