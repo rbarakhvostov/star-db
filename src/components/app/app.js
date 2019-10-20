@@ -5,6 +5,14 @@ import SwapiService from '../../services/swapi-service';
 import PeoplePage from '../people-page';
 import ErrorBoundary from '../error-boundary';
 import './app.css';
+import {
+  PersonList,
+  PlanetList,
+  StarshipList,
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+} from '../sw-components';
 
 export default class App extends Component {
 
@@ -39,6 +47,19 @@ export default class App extends Component {
             Toggle Random Planet
           </button>
           <PeoplePage />
+          {/* <PersonList>
+              {( { name} ) => (
+                `${name} `
+              )}
+          </PersonList>
+          <PlanetList>
+              {( { name} ) => (
+                `${name} `
+              )}
+          </PlanetList>
+          <PersonDetails itemId={7}/>
+          <PlanetDetails itemId={2}/> */}
+
         </div>
       </ErrorBoundary>
     );
