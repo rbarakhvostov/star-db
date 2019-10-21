@@ -6,9 +6,9 @@ import PeoplePage from '../people-page';
 import ErrorBoundary from '../error-boundary';
 import './app.css';
 import {
-  PersonList,
-  PlanetList,
-  StarshipList,
+  PeopleList,
+  PlanetsList,
+  StarshipsList,
   PersonDetails,
   PlanetDetails,
   StarshipDetails,
@@ -46,19 +46,10 @@ export default class App extends Component {
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
           </button>
-          <PeoplePage />
-          {/* <PersonList>
-              {( { name} ) => (
-                `${name} `
-              )}
-          </PersonList>
-          <PlanetList>
-              {( { name} ) => (
-                `${name} `
-              )}
-          </PlanetList>
-          <PersonDetails itemId={7}/>
-          <PlanetDetails itemId={2}/> */}
+          {/* <PeoplePage /> */}
+          <PeopleList />
+          <PlanetsList />
+          <StarshipsList />
 
         </div>
       </ErrorBoundary>
