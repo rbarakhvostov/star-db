@@ -13,9 +13,7 @@ const {
 } = swapiService;
 
 const PersonDetails = withDetails(ItemDetails, getPerson, getPersonImage);
-
 const PlanetDetails = withDetails(ItemDetails, getPlanet, getPlanetImage);
-
 const StarshipDetails = withDetails(ItemDetails, getStarship, getStarshipImage);
 
 export {
