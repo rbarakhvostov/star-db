@@ -1,3 +1,3 @@
-import WithData from './with-data';
-
-export default WithData;
+import withData from './with-data';
+import withDetails from './with-details';
+export { withData, withDetails };

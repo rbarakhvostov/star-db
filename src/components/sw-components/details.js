@@ -1,7 +1,6 @@
-import React from 'react';
-import ItemDetails from '../item-details';
-import Record from '../record';
 import SwapiService from '../../services/swapi-service';
+import ItemDetails from '../item-details';
+import { withDetails } from '../hoc-helper';
 
 const swapiService = new SwapiService();
 const {
@@ -13,50 +12,11 @@ const {
   getStarshipImage,
 } = swapiService;
 
-const PersonDetails = ({ itemId } ) => {
-  return (
-    <ItemDetails
-      itemId={itemId}
-      getData={getPerson}
-      getImageUrl={getPersonImage}>
+const PersonDetails = withDetails(ItemDetails, getPerson, getPersonImage);
 
-      <Record field='gender' label='Gender' />
-      <Record field='eyeColor' label='Eye Color' />
-      <Record field='birthYear' label='Birth Year' />
+const PlanetDetails = withDetails(ItemDetails, getPlanet, getPlanetImage);
 
-    </ItemDetails>
-  )
-}
-
-const PlanetDetails = ({ itemId }) => {
-  return (
-    <ItemDetails
-      itemId={itemId}
-      getData={getPlanet}
-      getImageUrl={getPlanetImage}>
-
-      <Record field='population' label='Population' />
-      <Record field='diameter' label='Diameter' />
-      <Record field='rotationPeriod' label='Rotation Period' />
-
-    </ItemDetails>
-  )
-}
-
-const StarshipDetails = ({ itemId }) => {
-  return (
-    <ItemDetails
-      itemId={itemId}
-      getData={getStarship}
-      getImageUrl={getStarshipImage}>
-
-      <Record field='model' label='Model' />
-      <Record field='costInCredits' label='Cost in Credits' />
-      <Record field='cargoCapacity' label='Cargo Capacity' />
-
-    </ItemDetails>
-  )
-}
+const StarshipDetails = withDetails(ItemDetails, getStarship, getStarshipImage);
 
 export {
   PersonDetails,
