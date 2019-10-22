@@ -11,6 +11,7 @@ const ItemDetails = (props) => {
   }
 
   const data = React.Children.map(records, (child) => {
+    console.log(child)
     return React.cloneElement(child, { item });
   });
 
