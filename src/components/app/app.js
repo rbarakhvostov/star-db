@@ -46,10 +46,10 @@ export default class App extends Component {
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
           </button>
-          {/* <PeoplePage /> */}
-          <PeopleList />
+          <PeoplePage />
+          {/* <PeopleList />
           <PlanetsList />
-          <StarshipsList />
+          <StarshipsList /> */}
 
         </div>
       </ErrorBoundary>

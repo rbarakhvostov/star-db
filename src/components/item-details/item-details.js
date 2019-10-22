@@ -2,14 +2,18 @@ import React from 'react';
 
 import './item-details.css';
 
-const ItemDetails = ({ item, image, data }) => {
+const ItemDetails = (props) => {
+  const { item, image, children:records } = props;
+  const { name } = item;
 
-  const { id, name } = item;
-
-  if (!id) {
+  if (!name) {
     return <span>Select a person from a list</span>
   }
-  
+
+  const data = React.Children.map(records, (child) => {
+    return React.cloneElement(child, { item });
+  });
+
   return (
     <>
       <img className='person-image'

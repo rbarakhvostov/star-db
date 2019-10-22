@@ -46,14 +46,10 @@ const withDetails =  (Details, getData, getImageUrl) => {
 
     render() {
       const { item, loading, image} = this.state;
-    
-      const data = React.Children.map(this.props.children, (child) => {
-        return React.cloneElement(child, { item });
-      });
-      
+          
       const spinner = loading ? <Spinner /> : null;
       const body = !loading 
-                      ? <Details item={item} image={image} data={data} />
+                      ? <Details item={item} image={image} />
                       : null;
       
       return (

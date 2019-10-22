@@ -18,7 +18,7 @@ const withData = (View, getData) => {
             data,
           });
       });
-    } 
+    }
 
     render() {
       const { data } = this.state;
