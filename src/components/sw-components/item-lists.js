@@ -1,15 +1,6 @@
 import React from 'react';
 import ItemList from '../item-list';
-import SwapiService from '../../services/swapi-service';
-import { withData } from '../hoc-helper';
-
-const swapiService = new SwapiService();
-
-const {
-  getAllPeople,
-  getAllPlanets,
-  getAllStarships,
-} = swapiService;
+import { withData, withSwapiService } from '../hoc-helper';
 
 const withChildFunction = (Wrapped, fn) => {
   return (props) => {
@@ -22,21 +13,45 @@ const withChildFunction = (Wrapped, fn) => {
 }
 
 const renderName = ({ name }) => <span>{ name }</span>;
+
 const renderModelAndName = ({ model, name }) => <span>{name} ({model})</span>;
 
-const PeopleList = withData(
-                        withChildFunction(ItemList, renderName),
-                        getAllPeople);
+const mapPersonMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllPeople,
+  }
+}
+
+const mapPlanetMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllPlanets,
+  }
+}
+
+const mapStarshipMethodsToProps = (swapiService) => {
+  return {
+    getData: swapiService.getAllStarships,
+  }
+}
+
+const PersonList = withSwapiService(
+                        withData(
+                          withChildFunction(ItemList, renderName)),
+                        mapPersonMethodsToProps);
+
                         
-const PlanetsList = withData(
-                        withChildFunction(ItemList, renderName),
-                        getAllPlanets);
-const StarshipsList = withData(
-                        withChildFunction(ItemList, renderModelAndName),
-                        getAllStarships);
+const PlanetList = withSwapiService(
+                          withData(
+                            withChildFunction(ItemList, renderName)),
+                          mapPlanetMethodsToProps);
+
+const StarshipList = withSwapiService(
+                          withData(
+                            withChildFunction(ItemList, renderModelAndName)),
+                          mapStarshipMethodsToProps);
 
 export {
-  PeopleList,
-  PlanetsList,
-  StarshipsList,
+  PersonList,
+  PlanetList,
+  StarshipList,
 }

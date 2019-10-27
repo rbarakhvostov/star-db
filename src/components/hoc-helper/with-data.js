@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
-const withData = (View, getData) => {
+const withData = (View) => {
 
   return class extends Component {
 
@@ -12,7 +12,7 @@ const withData = (View, getData) => {
     
     componentDidMount() {
   
-      getData()
+      this.props.getData()
         .then((data) => {
           this.setState({ 
             data,
@@ -21,13 +21,15 @@ const withData = (View, getData) => {
     }
 
     render() {
+      
       const { data } = this.state;
+      const { onItemSelected } = this.props;
 
       if (!data) {
         return <Spinner />
       }
 
-      return <View  {...this.props} data={data} />
+      return <View onItemSelected={onItemSelected} data={data} />
     }
   }
 }

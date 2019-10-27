@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
-const withDetails =  (Details, getData, getImageUrl) => {
+const withDetails =  (Details) => {
   
   return class extends Component {
 
@@ -17,7 +17,6 @@ const withDetails =  (Details, getData, getImageUrl) => {
     }
   
     componentDidUpdate(prevProps) {
-  
       if (this.props.itemId !== prevProps.itemId) {
         this.setState({
           loading: true
@@ -27,9 +26,9 @@ const withDetails =  (Details, getData, getImageUrl) => {
     }
   
     upDateItem() {
-    
-      const { itemId } = this.props;
-  
+      
+      const { itemId, getData, getImageUrl } = this.props;
+
       if (!itemId) {
         return;
       }

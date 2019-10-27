@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { PeopleList } from '../sw-components';
-import { PersonDetails } from '../sw-components';
+import { PersonList, PersonDetails } from '../sw-components';
 import SwapiService from '../../services/swapi-service';
 import Row from '../row';
 import ErrorBoundary from '../error-boundary';
@@ -25,7 +24,7 @@ export default class PeoplePage extends Component {
     const { selectedPerson } = this.state;
     
     const peopleList = (
-      <PeopleList onItemSelected={this.onPersonSelected} />
+      <PersonList onItemSelected={this.onPersonSelected} />
     );
     
     const personDetails = (
