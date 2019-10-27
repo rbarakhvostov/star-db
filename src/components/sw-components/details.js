@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemDetails from '../item-details';
 import Record from '../record';
-import { withDetails, withSwapiService } from '../hoc-helper';
+import { withDetails, withSwapiService } from '../hoc-helpers';
 
 const withChildRecords = (Wrapped, records) => {
   return (props) => {

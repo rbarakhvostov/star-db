@@ -6,15 +6,6 @@ import PeoplePage from '../people-page';
 import ErrorBoundary from '../error-boundary';
 import { SwapiServiceProvider } from '../swapi-service-context';
 
-import {
-  PeopleList,
-  PlanetsList,
-  StarshipsList,
-  PersonDetails,
-  PlanetDetails,
-  StarshipDetails,
-} from '../sw-components';
-
 import './app.css';
 
 export default class App extends Component {
