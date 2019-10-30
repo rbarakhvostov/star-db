@@ -5,7 +5,7 @@ import './item-details.css';
 const ItemDetails = (props) => {
   const { item, image, children:records } = props;
   const { name } = item;
-
+  console.log('render')
   if (!name) {
     return <span>Select a person from a list</span>
   }

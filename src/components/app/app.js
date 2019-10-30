@@ -11,11 +11,21 @@ import './app.css';
 
 export default class App extends Component {
 
-  swapiService = new DummySwapiService();
-
   state = {
     showRandomPlanet: true,
-    error: false,
+    swapiService : new SwapiService(),
+  }
+
+  onServiceChange = () => {
+    this.setState(({ swapiService }) => {
+      const Service = swapiService instanceof SwapiService 
+                        ? DummySwapiService
+                        : SwapiService;
+
+      return {
+        swapiService: new Service(), 
+      }
+    });
   }
 
   toggleRandomPlanet = () => {
@@ -27,15 +37,14 @@ export default class App extends Component {
   }
 
   render () {
-    console.log('APP THIS', this);
     const { showRandomPlanet } = this.state;
     const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
   
     return (
       <ErrorBoundary>
-        <SwapiServiceProvider value={this.swapiService}>
+        <SwapiServiceProvider value={this.state.swapiService}>
           <div className='app'>
-            <Header />
+            <Header onServiceChange={this.onServiceChange}/>
             { randomPlanet }
             <button
               className='toggle-planet btn btn-warning btn-lg'

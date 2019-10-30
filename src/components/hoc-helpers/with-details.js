@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
-const withDetails =  (Details) => {
+const withDetails = (Details) => {
   
   return class extends Component {
 
@@ -17,16 +17,17 @@ const withDetails =  (Details) => {
     }
   
     componentDidUpdate(prevProps) {
-      if (this.props.itemId !== prevProps.itemId) {
-        this.setState({
-          loading: true
-        });
+      if (this.props.itemId !== prevProps.itemId 
+          || this.props.getData !== prevProps.getData
+          || this.props.getImageUrl !== prevProps.getImageUrl) {
+        // this.setState({
+        //   loading: true
+        // });
         this.upDateItem();
       }
     }
   
     upDateItem() {
-      
       const { itemId, getData, getImageUrl } = this.props;
 
       if (!itemId) {

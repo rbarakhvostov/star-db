@@ -10,18 +10,26 @@ const withData = (View) => {
       data: null,
     }
     
+    componentDidUpdate(prevProps) {
+      if (this.props.getData !== prevProps.getData) {
+        this.upDateList();
+      }
+    }
+
     componentDidMount() {
-  
+      this.upDateList();
+    }
+
+    upDateList() {
       this.props.getData()
         .then((data) => {
           this.setState({ 
             data,
           });
-      });
+        });
     }
 
     render() {
-      
       const { data } = this.state;
       const { onItemSelected } = this.props;
 
