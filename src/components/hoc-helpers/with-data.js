@@ -8,8 +8,24 @@ const withData = (View) => {
 
     state = {
       data: null,
+      loading: true,
+      error: false,
     }
     
+    onDataLoaded = (data) => {
+      this.setState({ 
+        data,
+        loading: false,
+      });
+    }
+    
+    onError = () => {
+      this.setState({
+        error: true,
+        loading: false,
+      });
+    }
+
     componentDidUpdate(prevProps) {
       if (this.props.getData !== prevProps.getData) {
         this.upDateList();
@@ -22,19 +38,20 @@ const withData = (View) => {
 
     upDateList() {
       this.props.getData()
-        .then((data) => {
-          this.setState({ 
-            data,
-          });
-        });
+        .then(this.onDataLoaded)
+        .catch(this.onError);
     }
 
     render() {
-      const { data } = this.state;
+      const { data, loading, error } = this.state;
       const { onItemSelected } = this.props;
 
-      if (!data) {
+      if (loading) {
         return <Spinner />
+      }
+      
+      if (error) {
+        return <ErrorIndicator />
       }
 
       return <View onItemSelected={onItemSelected} data={data} />
