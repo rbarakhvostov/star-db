@@ -3,11 +3,16 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import SwapiService from '../../services/swapi-service';
 import DummySwapiService from '../../services/dummy-swapi-service';
-import PeoplePage from '../people-page';
+import {PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
 import ErrorBoundary from '../error-boundary';
 import { SwapiServiceProvider } from '../swapi-service-context';
 
 import './app.css';
+import { PlanetList,
+  StarshipList,
+  PlanetDetails,
+  StarshipDetails } from '../sw-components';
+import Row from '../row'; 
 
 export default class App extends Component {
 
@@ -52,6 +57,8 @@ export default class App extends Component {
               Toggle Random Planet
             </button>
             <PeoplePage />
+            <PlanetsPage />
+            <StarshipsPage />
           </div>
         </SwapiServiceProvider>
       </ErrorBoundary>

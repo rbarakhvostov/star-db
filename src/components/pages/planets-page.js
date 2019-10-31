@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { PersonList, PersonDetails } from '../sw-components';
+import { PlanetList, PlanetDetails } from '../sw-components';
 import SwapiService from '../../services/swapi-service';
 import Row from '../row';
 import ErrorBoundary from '../error-boundary';
-import './people-page.css';
 
-
-export default class PeoplePage extends Component {
+export default class PlanetsPage extends Component {
 
   swapiService = new SwapiService();
   
@@ -14,7 +12,7 @@ export default class PeoplePage extends Component {
     selectedPerson: null,
   }
 
-  onPersonSelected = (selectedPerson) => {
+  onItemSelected = (selectedPerson) => {
     this.setState({
       selectedPerson,
     });
@@ -23,17 +21,17 @@ export default class PeoplePage extends Component {
   render() {
     const { selectedPerson } = this.state;
     
-    const peopleList = (
-      <PersonList onItemSelected={this.onPersonSelected} />
+    const planetList = (
+      <PlanetList onItemSelected={this.onItemSelected} />
     );
     
-    const personDetails = (
-      <PersonDetails itemId={selectedPerson} />
+    const planetDetails = (
+      <PlanetDetails itemId={selectedPerson} />
     );
 
     return (
       <ErrorBoundary>
-        <Row left={peopleList} right={personDetails} />
+        <Row left={planetList} right={planetDetails} />
       </ErrorBoundary>
     )
   }

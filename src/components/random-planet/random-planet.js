@@ -46,7 +46,6 @@ export default class RandomPlanet extends Component {
   }
 
   render() {
-    
     const { planet, loading, error } = this.state;
     const data = !(loading || error); 
     const spinner = loading ? <Spinner /> : null;
