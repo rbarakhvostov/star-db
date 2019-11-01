@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemDetails from '../item-details';
 import Record from '../record';
-import { withDetails, withSwapiService } from '../hoc-helpers';
+import { withDetails, withSwapiService, compose } from '../hoc-helpers';
 
 const withChildRecords = (records) => (Wrapped) => {
   return (props) => {
@@ -36,6 +36,7 @@ const mapPersonMethodsToProps = (swapiService) => {
   }
 }
 
+
 const mapPlanetMethodsToProps = (swapiService) => {
   return {
     getData: swapiService.getPlanet,
@@ -50,23 +51,24 @@ const mapStarshipMethodsToProps = (swapiService) => {
   }
 }
 
-const PersonDetails = withSwapiService(mapPersonMethodsToProps)(
-                        withDetails(
-                          withChildRecords(personRecords)(
-                            ItemDetails)));
+const PersonDetails = compose(
+                        withSwapiService(mapPersonMethodsToProps),
+                        withDetails,
+                        withChildRecords(personRecords),
+                        )(ItemDetails);
 
-const PlanetDetails = withSwapiService(mapPlanetMethodsToProps)(
-                        withDetails(
-                          withChildRecords(planetRecords)(
-                            ItemDetails)));
-                            
-                          
+const PlanetDetails = compose(
+                        withSwapiService(mapPlanetMethodsToProps),
+                        withDetails,
+                        withChildRecords(planetRecords),
+                        )(ItemDetails);
 
-const StarshipDetails = withSwapiService(mapStarshipMethodsToProps)(
-                          withDetails(
-                            withChildRecords(starshipRecords)(
-                              ItemDetails)));
-                            
+const StarshipDetails = compose(
+                          withSwapiService(mapStarshipMethodsToProps),
+                          withDetails,
+                          withChildRecords(starshipRecords),
+                          )(ItemDetails);
+
 
 export {
   PersonDetails,
