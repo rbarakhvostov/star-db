@@ -3,7 +3,7 @@ import ItemDetails from '../item-details';
 import Record from '../record';
 import { withDetails, withSwapiService } from '../hoc-helpers';
 
-const withChildRecords = (Wrapped, records) => {
+const withChildRecords = (records) => (Wrapped) => {
   return (props) => {
     return (
       <Wrapped {...props}>
@@ -50,20 +50,23 @@ const mapStarshipMethodsToProps = (swapiService) => {
   }
 }
 
-const PersonDetails = withSwapiService(
-                            withDetails(
-                              withChildRecords(ItemDetails, personRecords)),
-                            mapPersonMethodsToProps);
+const PersonDetails = withSwapiService(mapPersonMethodsToProps)(
+                        withDetails(
+                          withChildRecords(personRecords)(
+                            ItemDetails)));
 
-const PlanetDetails = withSwapiService(
-                            withDetails(
-                              withChildRecords(ItemDetails, planetRecords)),
-                            mapPlanetMethodsToProps);
+const PlanetDetails = withSwapiService(mapPlanetMethodsToProps)(
+                        withDetails(
+                          withChildRecords(planetRecords)(
+                            ItemDetails)));
+                            
+                          
 
-const StarshipDetails = withSwapiService(
-                            withDetails(
-                              withChildRecords(ItemDetails, starshipRecords)),
-                            mapStarshipMethodsToProps);
+const StarshipDetails = withSwapiService(mapStarshipMethodsToProps)(
+                          withDetails(
+                            withChildRecords(starshipRecords)(
+                              ItemDetails)));
+                            
 
 export {
   PersonDetails,
