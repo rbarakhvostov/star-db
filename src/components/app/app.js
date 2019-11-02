@@ -8,11 +8,6 @@ import ErrorBoundary from '../error-boundary';
 import { SwapiServiceProvider } from '../swapi-service-context';
 
 import './app.css';
-import { PlanetList,
-  StarshipList,
-  PlanetDetails,
-  StarshipDetails } from '../sw-components';
-import Row from '../row'; 
 
 export default class App extends Component {
 
