@@ -38,7 +38,7 @@ export default class App extends Component {
 
   render () {
     const { showRandomPlanet } = this.state;
-    const randomPlanet = showRandomPlanet ? <RandomPlanet /> : null;
+    const randomPlanet = showRandomPlanet ? <RandomPlanet a={1}/> : null;
   
     return (
       <ErrorBoundary>
