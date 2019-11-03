@@ -9,24 +9,24 @@ export default class PlanetsPage extends Component {
   swapiService = new SwapiService();
   
   state = {
-    selectedPerson: null,
+    selectedItem: null,
   }
 
-  onItemSelected = (selectedPerson) => {
+  onItemSelected = (selectedItem) => {
     this.setState({
-      selectedPerson,
+      selectedItem,
     });
   }
 
   render() {
-    const { selectedPerson } = this.state;
+    const { selectedItem } = this.state;
     
     const planetList = (
       <PlanetList onItemSelected={this.onItemSelected} />
     );
     
     const planetDetails = (
-      <PlanetDetails itemId={selectedPerson} />
+      <PlanetDetails itemId={selectedItem} />
     );
 
     return (

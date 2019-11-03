@@ -74,10 +74,6 @@ export default class RandomPlanet extends Component {
   }
 }
 
-// RandomPlanet.defaultProps = {
-//   upDateInterval: 1000,
-// }
-
 const PlanetView = ({ planet }) => {
 
   const { id, name, population,

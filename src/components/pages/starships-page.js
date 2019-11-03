@@ -9,24 +9,24 @@ export default class StarshipsPage extends Component {
   swapiService = new SwapiService();
   
   state = {
-    selectedPerson: null,
+    selectedItem: null,
   }
 
-  onItemSelected = (selectedPerson) => {
+  onItemSelected = (selectedItem) => {
     this.setState({
-      selectedPerson,
+      selectedItem,
     });
   }
 
   render() {
-    const { selectedPerson } = this.state;
+    const { selectedItem } = this.state;
     
     const starshipList = (
       <StarshipList onItemSelected={this.onItemSelected} />
     );
     
     const starshipDetails = (
-      <StarshipDetails itemId={selectedPerson} />
+      <StarshipDetails itemId={selectedItem} />
     );
 
     return (

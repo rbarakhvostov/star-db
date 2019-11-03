@@ -51,7 +51,7 @@ const withDetails = (Details) => {
       const body = !loading 
                       ? <Details item={item} image={image} />
                       : null;
-      
+
       return (
         <div className='person-details card'>
           { body }
