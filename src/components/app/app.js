@@ -63,7 +63,7 @@ export default class App extends Component {
               <Route path='/starships/:id'
                       render={({match, location, history}) => {
                         const { id } = match.params;
-                        return <StarshipDetails itemId={id}/>
+                        return <StarshipDetails itemId={id} />
                       }} />
             </div>
           </Router>
