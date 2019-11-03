@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { PlanetList, PlanetDetails } from '../sw-components';
-import SwapiService from '../../services/swapi-service';
 import Row from '../row';
 import ErrorBoundary from '../error-boundary';
 
 export default class PlanetsPage extends Component {
 
-  swapiService = new SwapiService();
-  
   state = {
     selectedItem: null,
   }
