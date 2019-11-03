@@ -55,16 +55,16 @@ export default class App extends Component {
                 Toggle Random Planet
               </button>
               <Route path="/"
-                    render={() => <h2>Welcome to StarDB</h2>}
-                    exact />
+                     render={() => <h2>Welcome to StarDB</h2>}
+                     exact />
               <Route path='/people' component={PeoplePage} />
-              <Route path='/planets' component={PlanetsPage} />
+              <Route path='/planets' component={PlanetsPage} exact/>
               <Route path='/starships' component={StarshipsPage} exact/>
               <Route path='/starships/:id'
-                      render={({match, location, history}) => {
-                        const { id } = match.params;
-                        return <StarshipDetails itemId={id} />
-                      }} />
+                     render={({ match }) => {
+                       const { id } = match.params;
+                       return <StarshipDetails itemId={id} />
+                     }} />
             </div>
           </Router>
         </SwapiServiceProvider>
