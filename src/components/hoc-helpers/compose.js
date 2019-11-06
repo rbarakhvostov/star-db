@@ -4,3 +4,4 @@ const compose = (...funcs) => (comp) => {
  }
 
  export default compose;
+ 

@@ -7,7 +7,7 @@ const ItemDetails = (props) => {
   const { name } = item;
 
   if (!name) {
-    return <span>Select a person from a list</span>
+    return <span>Select an item from the list</span>
   }
 
   const data = React.Children.map(records, (child) => {
@@ -16,7 +16,7 @@ const ItemDetails = (props) => {
 
   return (
     <>
-      <img className='person-image'
+      <img className='item-image'
           src={ image }
           alt={ name } />
         <div className='card-body'>
@@ -26,7 +26,7 @@ const ItemDetails = (props) => {
           </ul>
         </div>
     </>
-  )
+  );
 }
 
 export default ItemDetails;

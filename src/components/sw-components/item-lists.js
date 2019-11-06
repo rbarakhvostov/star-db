@@ -8,7 +8,7 @@ const withChildFunction = (fn) => (Wrapped) => {
       <Wrapped {...props}>
         { fn }
       </Wrapped>
-    )
+    );
   }
 }
 

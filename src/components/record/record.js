@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './record.css';
 
 const Record = ({ item, field, label }) => {

@@ -53,7 +53,7 @@ const withDetails = (Details) => {
                       : null;
 
       return (
-        <div className='person-details card'>
+        <div className='item-details card'>
           { body }
           { spinner }
         </div>

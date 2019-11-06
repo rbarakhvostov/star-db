@@ -12,9 +12,9 @@ import {
   LoginPage } from '../pages';
 import ErrorBoundary from '../error-boundary';
 import { SwapiServiceProvider } from '../swapi-service-context';
+import { StarshipDetails } from '../sw-components';
 
 import './app.css';
-import { StarshipDetails } from '../sw-components';
 
 export default class App extends Component {
 
@@ -67,13 +67,13 @@ export default class App extends Component {
               </button>
               <Switch>
                 <Route path="/"
-                      render={() => <h2>Welcome to StarDB</h2>}
-                      exact />
+                       render={() => <h2>Welcome to StarDB</h2>}
+                       exact />
                 <Route path='/people/:id?' component={PeoplePage} />
                 <Route path='/planets' component={PlanetsPage} exact/>
                 <Route path='/starships' component={StarshipsPage} exact/>
                 <Route path='/starships/:id'
-                      render={({ match }) => {
+                       render={({ match }) => {
                         const { id } = match.params;
                         return <StarshipDetails itemId={id} />
                       }} />
@@ -89,7 +89,6 @@ export default class App extends Component {
                   render={() => (
                     <SecretPage isLoggedIn={isLoggedIn} />
                   )}/>
-                {/* <Redirect to='/' /> */}
                 <Route render={() => <h2>Page not found</h2>} />
               </Switch>
             </div>
@@ -98,4 +97,4 @@ export default class App extends Component {
       </ErrorBoundary>
     );
   }
-};
+}
