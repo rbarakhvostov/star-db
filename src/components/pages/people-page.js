@@ -5,7 +5,6 @@ import Row from '../row';
 import ErrorBoundary from '../error-boundary';
 
 const PeoplePage = ({ history, match }) => {
-
   const { id } = match.params;
   const personList = (
     <PersonList onItemSelected={(id) => history.push(id)} />
@@ -19,7 +18,7 @@ const PeoplePage = ({ history, match }) => {
     <ErrorBoundary>
       <Row left={personList} right={personDetails} />
     </ErrorBoundary>
-  )
+  );
 }
 
 export default withRouter(PeoplePage);

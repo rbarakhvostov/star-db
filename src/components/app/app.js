@@ -70,25 +70,27 @@ export default class App extends Component {
                        render={() => <h2>Welcome to StarDB</h2>}
                        exact />
                 <Route path='/people/:id?' component={PeoplePage} />
-                <Route path='/planets' component={PlanetsPage} exact/>
-                <Route path='/starships' component={StarshipsPage} exact/>
+                <Route path='/planets' component={PlanetsPage} exact />
+                <Route path='/starships' component={StarshipsPage} exact />
                 <Route path='/starships/:id'
                        render={({ match }) => {
                         const { id } = match.params;
                         return <StarshipDetails itemId={id} />
-                      }} />
+                       }} />
                 <Route
                   path='/login'
                   render={() => (
                     <LoginPage
                       isLoggedIn={isLoggedIn}
                       onLogin={this.onLogin} />
-                  )} />
+                  )}
+                  exact />
                 <Route
                   path='/secret'
                   render={() => (
                     <SecretPage isLoggedIn={isLoggedIn} />
-                  )}/>
+                  )}
+                  exact />
                 <Route render={() => <h2>Page not found</h2>} />
               </Switch>
             </div>

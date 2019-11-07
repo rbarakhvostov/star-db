@@ -9,7 +9,7 @@ const ItemDetails = (props) => {
   if (!name) {
     return <span>Select an item from the list</span>
   }
-
+ 
   const data = React.Children.map(records, (child) => {
     return React.cloneElement(child, { item });
   });

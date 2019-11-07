@@ -2,50 +2,59 @@ export default class DummySwapiService {
 
   _people = [
     {
-      id: 1,
+      id: '1',
       name: 'Bilbo Baggins [TEST DATA]',
       gender: 'male',
       birthYear: 'long ago',
-      eyeColor: 'dark brown'
+      eyeColor: 'dark brown',
     },
 
     {
-      id: 2,
+      id: '2',
       name: 'Frodo Baggins [TEST DATA]',
       gender: 'male',
       birthYear: 'long ago',
-      eyeColor: 'dark brown'
+      eyeColor: 'green',
     }
   ];
 
   _planets = [
     {
-      id: 1,
+      id: '1',
       name: 'Earth [TEST DATA]',
       population: '7.530.000.000',
       rotationPeriod: '23 hours 56 seconds',
-      diameter: '12.742 km'
+      diameter: '12.742 km',
     },
+
     {
-      id: 2,
+      id: '2',
       name: 'Venus [TEST DATA]',
       population: 'not known',
       rotationPeriod: '243 days',
-      diameter: '12.104 km'
+      diameter: '12.104 km',
     }
   ];
 
   _starships = [
     {
-      id: 1,
+      id: '1',
       name: 'USS Enterprise [TEST DATA]',
       model: 'NCC-1701-C',
       manufacturer: 'Northrop Grumman Shipbuilding',
-      costInCredits: 'not known',
       length: 'approx 300 meters',
-      crew: 1000,
       passengers: 50,
-      cargoCapacity: 100
+      cargoCapacity: 100,
+    },
+
+    {
+      id: '2',
+      name: 'EU Enterprise [TEST DATA]',
+      model: 'DAD-5874-C',
+      manufacturer: 'Northrop Grumman Shipbuilding',
+      length: '452 meters',
+      passengers: 50,
+      cargoCapacity: 100,
     }
   ];
 
@@ -74,7 +83,7 @@ export default class DummySwapiService {
   };
 
   getPersonImage = () => {
-    return `https://placeimg.com/400/500/people`
+    return `https://placeimg.com/400/500/people`;
   };
 
   getStarshipImage = () => {
@@ -82,6 +91,6 @@ export default class DummySwapiService {
   };
 
   getPlanetImage = () => {
-    return `https://placeimg.com/400/400/nature`
+    return `https://placeimg.com/400/400/nature`;
   };
 }

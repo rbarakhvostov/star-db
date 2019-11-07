@@ -10,7 +10,7 @@ import './random-planet.css';
 export default class RandomPlanet extends Component {
 
   static defaultProps = {
-    upDateInterval: 5000,
+    upDateInterval: 50000,
   }
  
   static propTypes = {
@@ -63,7 +63,6 @@ export default class RandomPlanet extends Component {
     const spinner = loading ? <Spinner /> : null;
     const errorIndicator = error ? <ErrorIndicator /> : null;
     const content = data ? <RandomPlanetView planet={planet} /> : null;
-
     return (
       <div className="random-planet jumbotron rounded">
         { spinner }
