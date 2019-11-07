@@ -11,5 +11,4 @@ const Record = ({ item, field, label }) => {
   )
 }
 
-
 export default Record;
