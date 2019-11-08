@@ -43,15 +43,15 @@
 }
 .lds-double-ring {
   position: relative;
-  width: 77px !important;
-  height: 77px !important;
+  width: 77px;
+  height: 77px;
   -webkit-transform: translate(-38.5px, -38.5px) scale(0.385) translate(38.5px, 38.5px);
   transform: translate(-38.5px, -38.5px) scale(0.385) translate(38.5px, 38.5px);
 }
 .lds-double-ring div {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   top: 20px;
   left: 20px;
   border-radius: 50%;
@@ -61,8 +61,8 @@
   animation: lds-double-ring 1.7s linear infinite;
 }
 .lds-double-ring div:nth-child(2) {
-  width: 140px;
-  height: 140px;
+  width: 100px;
+  height: 100px;
   top: 30px;
   left: 30px;
   border-color: transparent #007053 transparent #007053;

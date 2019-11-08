@@ -6,12 +6,13 @@
   color: #c78f22;
 }
 .error-indicator img {
+  width: 5%;
   margin-bottom: 1em;
 }
 .error-indicator p {
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   margin-bottom: 0;
 }
 .error-indicator .boom {
-  font-size: 2rem;
+  font-size: 1rem;
 }

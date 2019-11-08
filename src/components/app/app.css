@@ -1,6 +1,10 @@
 .app {
   overflow: hidden;
+  font-size: 0.7rem;
 }
 .toggle-planet {
-  margin-bottom: 2em;
+  margin-bottom: 1.2em;
+}
+.greeting {
+  margin-left: 1em;
 }

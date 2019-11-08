@@ -1,6 +1,6 @@
 .random-planet.jumbotron {
   display: flex;
-  margin-top: 2em;
+  margin: 1.5em 0;
   padding: 1em;
 }
 .random-planet .planet-image {

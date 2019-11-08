@@ -61,13 +61,13 @@ export default class App extends Component {
               <Header onServiceChange={this.onServiceChange}/>
               { randomPlanet }
               <button
-                className='toggle-planet btn btn-warning btn-lg'
+                className='toggle-planet btn btn-warning btn-md'
                 onClick={this.toggleRandomPlanet}>
                 Toggle Random Planet
               </button>
               <Switch>
                 <Route path="/"
-                       render={() => <h2>Welcome to StarDB</h2>}
+                       render={() => <h2 className='greeting'>Welcome to StarDB</h2>}
                        exact />
                 <Route path='/people/:id?' component={PeoplePage} />
                 <Route path='/planets' component={PlanetsPage} exact />

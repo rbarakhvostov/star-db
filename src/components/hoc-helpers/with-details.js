@@ -56,9 +56,7 @@ const withDetails = (Details) => {
       }
 
       return (
-        <div className='item-details card'>
-          <Details item={item} image={image} />
-        </div>
+        <Details item={item} image={image} />
       );
     }
   }
