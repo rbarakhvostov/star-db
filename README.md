@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/31df6bd7-8e2a-457a-89ed-b757df2ff0bd/deploy-status)](https://app.netlify.com/sites/star-wars-db/deploys)
+
 # Website about the Star Wars Universe
 
 ##  You can get information about characters, planets and ships
